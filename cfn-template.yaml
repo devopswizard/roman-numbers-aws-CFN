@@ -20,8 +20,6 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Enable HTTP for Flask Web Server and SSH port to secure reach to my EC2
-      SecurityGroupEgress: 
-        SecurityGroupEgress
       SecurityGroupIngress: 
         - IpProtocol: tcp
           FromPort: 80
@@ -63,7 +61,7 @@ Resources:
 Outputs: 
   WebSiteAddress:
     Value: !Sub
-      - http://${PublicIpAddress}
+      - http://${PublicIpAddress}:8080
       - PublicIpAddress: !GetAtt MyWebServer.PublicDnsName
 
 
