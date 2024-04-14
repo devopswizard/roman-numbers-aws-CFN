@@ -53,6 +53,12 @@ MyWebServer:
       dnf install python3-pip -y
       dnf install git -y
       pip3 install flask
+      FOLDER="https://raw.githubusercontent.com/devopswizard/roman-numbers-aws-CFN/main"
+      cd /home/ec2-user
+      wget -P templates ${FOLDER}/templates/index.html
+      wget -P templates ${FOLDER}/templates/result.html
+      wget ${FOLDER}/roman-numerals-converter-app.py
+      python3 roman-numerals-converter-app.py
   
 Outputs: 
   WebSiteAddress:
